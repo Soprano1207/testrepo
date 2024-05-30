@@ -2,7 +2,7 @@
 FROM node:20-alpine
 
 # Устанавливаем рабочую директорию
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/mynodeproject
 
 # Копируем package.json и package-lock.json в рабочую директорию
 COPY mynodeproject/package*.json ./
