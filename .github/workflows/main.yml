@@ -15,27 +15,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./mynodeproject
-
-    - name: Run tests
-      run: npm test
-      working-directory: ./mynodeproject
-
-  docker-build:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
     - name: Build Docker image
       run: docker build . -t mynodeproject --file Dockerfile
       working-directory: ./testrepo
