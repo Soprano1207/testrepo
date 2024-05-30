@@ -1,3 +1,4 @@
+# .github/workflows/main.yml
 name: Node.js CI
 
 on:
@@ -17,7 +18,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'  # Обновлено на Node.js 20
+        node-version: '20'
 
     - name: Install dependencies
       run: npm install
@@ -37,9 +38,7 @@ jobs:
 
     - name: Build Docker image
       run: docker build . -t mynodeproject
-
-    - name: Run Docker container
-      run: docker run mynodeproject
+      working-directory: ./testrepo
 
     - name: Run Docker container
       run: docker run mynodeproject

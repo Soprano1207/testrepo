@@ -1,16 +1,17 @@
-# Dockerfile
-FROM node:18-alpine
+# Используем базовый образ Node.js
+FROM node:20-alpine
 
-# Create app directory
+# Устанавливаем рабочую директорию
 WORKDIR /usr/src/app
 
-# Install app dependencies
-COPY package*.json ./mynodeproject
+# Копируем package.json и package-lock.json в рабочую директорию
+COPY mynodeproject/package*.json ./
 
+# Устанавливаем зависимости
 RUN npm install
 
-# Bundle app source
-COPY . .
+# Копируем оставшиеся файлы проекта в рабочую директорию
+COPY mynodeproject/ .
 
-# Run tests
+# Указываем команду по умолчанию для выполнения тестов
 CMD ["npm", "test"]
