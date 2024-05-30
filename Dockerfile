@@ -14,4 +14,4 @@ RUN npm install
 COPY . .
 
 # Команда, которая будет выполнена при запуске контейнера
-CMD ["node", "test"]
+CMD ["node", "test/matrix.test.js"]
